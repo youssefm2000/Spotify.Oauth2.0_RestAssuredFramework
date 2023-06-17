@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Spotify OAuth2.0 Suite">
+    <test verbose="2" preserve-order="true" name="Api Test Cases">
+        <classes>
+            <class name="tests.PlaylistApiTests">
+                <methods>
+            <include name="AddApiPlaylist"/>
+            <include name="GetApiPlaylist"/>
+            <include name="UpdateApiPlaylist"/>
+            <include name="AddApiPlaylistwithoutname"/>
+            <include name="AddApiPlaylistwithoutaccesstoken"/>
+              </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
