@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "b8560f08-9f70-433c-bf5a-6421e229c89d",
+		"name": "SPotifyOAuth2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26567788"
+	},
+	"item": [
+		{
+			"name": "authorize",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://accounts.spotify.com/authorize?client_id=4b33f1c480814285bb5e07fab3ae4a65&response_type=code&redirect_uri=https://localhost:8080&scope=playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public&state=34fFs29kd09",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "4b33f1c480814285bb5e07fab3ae4a65"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://localhost:8080"
+						},
+						{
+							"key": "scope",
+							"value": "playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public"
+						},
+						{
+							"key": "state",
+							"value": "34fFs29kd09"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gettoken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "4b33f1c480814285bb5e07fab3ae4a65",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "2cbf85b276ad4d4dae86c86255540fde",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "AQC1ZKjYcegmhFC9BQIm0nVnuAzmzl8rxRnsi9huqo3Vx_GvVXQC74yoenks5oZZ4ZCXRWjlZhgwIYFGFoYiHvd4EgFRdTAAlCSnUnI2DlMpMVyLDlaCnJqLcrheLiFFfi6_ig8CRdoU6AitRZBSGAadxGAMHhfxDZtKfiV31v8sYxD4KUVPfBwbtSW7OahQLw",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://localhost:8080",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://accounts.spotify.com/api/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "renewtoken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "AQC4PJ_hJ4diMFyabVC3S2LSk-cYaK3nITGLDLiOgEUH1KVcP_D0JGK-MgViFHhijrrNBg5swFeHq9WTrtsCoUezX9tqwGn1BdErSeJg10sMIOFkSwVwodFI62oMidTMBEY",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "4b33f1c480814285bb5e07fab3ae4a65",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "2cbf85b276ad4d4dae86c86255540fde",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://accounts.spotify.com/api/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateApiPlaylist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQAL1cFr-XyGrkMBTRf6zYxMH9XMCsTXiSsYFRiibUlIj4LO6AofgDJmFhG-nJZecgPWtOT5tIi8WRsoE-L0wVQdyBDYNUa_5SIk1_SF_09sNQuAAMM5PpubxlsFSUkWAfdbiBCpEG7DuboAtf2HokHEZnzQREOfxogBFHaA_CSw9Mtm6X4gzC0ynQ3NAtjwW5S_Hq1iPd4t6l4eCNiuM1iIAfmUC8OG0lApLY4AhQsxOzMHRD5dd-zL_GMJ_xrq81I8lvpDj2BSlkZW",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"name\":\"New Playlist\",\r\n\"description\":\"New Playlist description\",\r\n\"public\": false\r\n\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.spotify.com/v1/users/31cm7czuqmtwzvoxuwdg7zfkm3iu/playlists",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"users",
+						"31cm7czuqmtwzvoxuwdg7zfkm3iu",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetApiPlaylist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQAL1cFr-XyGrkMBTRf6zYxMH9XMCsTXiSsYFRiibUlIj4LO6AofgDJmFhG-nJZecgPWtOT5tIi8WRsoE-L0wVQdyBDYNUa_5SIk1_SF_09sNQuAAMM5PpubxlsFSUkWAfdbiBCpEG7DuboAtf2HokHEZnzQREOfxogBFHaA_CSw9Mtm6X4gzC0ynQ3NAtjwW5S_Hq1iPd4t6l4eCNiuM1iIAfmUC8OG0lApLY4AhQsxOzMHRD5dd-zL_GMJ_xrq81I8lvpDj2BSlkZW",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.spotify.com/v1/playlists/2lnxbnHNdmiE1gqnDO2SG1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"playlists",
+						"2lnxbnHNdmiE1gqnDO2SG1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateApiPlaylist",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BQAL1cFr-XyGrkMBTRf6zYxMH9XMCsTXiSsYFRiibUlIj4LO6AofgDJmFhG-nJZecgPWtOT5tIi8WRsoE-L0wVQdyBDYNUa_5SIk1_SF_09sNQuAAMM5PpubxlsFSUkWAfdbiBCpEG7DuboAtf2HokHEZnzQREOfxogBFHaA_CSw9Mtm6X4gzC0ynQ3NAtjwW5S_Hq1iPd4t6l4eCNiuM1iIAfmUC8OG0lApLY4AhQsxOzMHRD5dd-zL_GMJ_xrq81I8lvpDj2BSlkZW",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"New Playlist\",\r\n    \"description\":\"New Playlist description\",\r\n    \"public\": false\r\n}"
+				},
+				"url": {
+					"raw": "https://api.spotify.com/v1/playlists/2lnxbnHNdmiE1gqnDO2SG1\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"spotify",
+						"com"
+					],
+					"path": [
+						"v1",
+						"playlists",
+						"2lnxbnHNdmiE1gqnDO2SG1\n"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
