@@ -4,6 +4,7 @@
  - java 
  - maven
  - TestNG
+ - Data Driven such as Json file
  - Allure Reports
  - Jackson Api
  - Lombok
